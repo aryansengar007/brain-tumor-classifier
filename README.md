@@ -26,7 +26,7 @@ This project is a deep learning-powered web application for classifying brain MR
 
 ## 🧪 Tech Stack & Libraries
 
-- `Python 3.x`
+- `Python 3.10`
 - `TensorFlow / Keras`
 - `Streamlit`
 - `Pillow (PIL)`
@@ -48,3 +48,11 @@ Cloud deployment (e.g., Hugging Face, Streamlit Cloud)
 Heatmap overlays (Grad-CAM)
 
 Patient form integration and database storage
+
+---
+
+## 📦 Model Not Included 
+To run the app, download the trained model file from:  
+[Google Drive Link](https://drive.google.com/file/d/1yshagIhfq15iDHo_0-3SRw33lavghMiT/view?usp=sharing)
+
+Then place it in the project directory as `brain_tumor_model.h5`.
