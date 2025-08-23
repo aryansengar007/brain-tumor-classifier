@@ -76,3 +76,10 @@ To run the app, download the trained model file from:
 [Google Drive Link](https://drive.google.com/file/d/1yshagIhfq15iDHo_0-3SRw33lavghMiT/view?usp=sharing)
 
 Then place it in the project directory as `brain_tumor_model.h5`.
+
+---
+© 2025 Aryan Sengar – All Rights Reserved  
+Unauthorized copying is strictly prohibited.
+---
+
+> 💬 *Feel free to drop a ⭐ if you find this helpful!*
