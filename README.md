@@ -16,6 +16,14 @@ This project is a deep learning-powered web application for classifying brain MR
 
 ---
 
+## 🎥 Project Demo
+
+This demo showcases the complete workflow of the Brain Tumor Classification system, including image upload, preprocessing, CNN-based prediction, confidence scores, and result visualization.
+
+▶️ [Watch the Project Demo](./BrainTumorClassifier_ProjectDemo/BrainTumorClassifier_ProjectDemo.mp4)
+
+---
+
 ## 🖥️ Demo Screenshots
  
  # Dashboard 
