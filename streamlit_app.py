@@ -89,7 +89,7 @@ def generate_pdf_report(
 
 st.set_page_config(page_title="Brain Tumor Classifier", layout="wide", page_icon="🧠")
 model = load_model(
-    r"D:\AI-900 NCU\Azure Project\Brain Tumor Project\brain_tumor_model.h5"
+    "brain_tumor_model.h5"
 )
 categories = ["Healthy", "Tumor"]
 
@@ -330,3 +330,4 @@ with history_tab:
         st.table(df)
     else:
         st.info("No history yet. Upload an image to begin.")
+
