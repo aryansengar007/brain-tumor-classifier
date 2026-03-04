@@ -12,8 +12,8 @@ import seaborn as sns
 IMG_SIZE = 128
 categories = ["Healthy", "Tumor"]
 
-MRI_PATH = "Brain Tumor MRI images"
-CT_PATH = "Brain Tumor CT scan Images"
+MRI_PATH = r"D:\AI-900 NCU\Azure Project\Brain Tumor Project\Brain Tumor MRI images"
+CT_PATH = r"D:\AI-900 NCU\Azure Project\Brain Tumor Project\Brain Tumor CT scan Images"
 
 
 def load_images(data_path):
@@ -103,5 +103,3 @@ plt.xlabel("Epoch")
 plt.ylabel("Accuracy")
 plt.legend()
 plt.show()
-
-
