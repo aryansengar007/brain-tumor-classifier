@@ -12,8 +12,9 @@ import seaborn as sns
 IMG_SIZE = 128
 categories = ["Healthy", "Tumor"]
 
-MRI_PATH = r"F:\AI-900 NCU\Azure Project\Brain Tumor Project\Brain Tumor CT scan Images"
-CT_PATH = r"F:\AI-900 NCU\Azure Project\Brain Tumor Project\Brain Tumor MRI images"
+MRI_PATH = r"D:\AI-900 NCU\Azure Project\Brain Tumor Project\Brain Tumor MRI images"
+CT_PATH = r"D:\AI-900 NCU\Azure Project\Brain Tumor Project\Brain Tumor CT scan Images"
+
 
 def load_images(data_path):
     data = []
@@ -28,6 +29,7 @@ def load_images(data_path):
             except Exception as e:
                 pass
     return data
+
 
 mri_data = load_images(MRI_PATH)
 ct_data = load_images(CT_PATH)
@@ -44,20 +46,24 @@ for features, label in all_data:
 X = np.array(X).reshape(-1, IMG_SIZE, IMG_SIZE, 1) / 255.0
 y = to_categorical(y, num_classes=2)
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
 
-model = Sequential([
-    Conv2D(32, (3,3), activation='relu', input_shape=(IMG_SIZE, IMG_SIZE, 1)),
-    MaxPooling2D(2,2),
-    Conv2D(64, (3,3), activation='relu'),
-    MaxPooling2D(2,2),
-    Flatten(),
-    Dense(128, activation='relu'),
-    Dropout(0.5),
-    Dense(2, activation='softmax')
-])
+model = Sequential(
+    [
+        Conv2D(32, (3, 3), activation="relu", input_shape=(IMG_SIZE, IMG_SIZE, 1)),
+        MaxPooling2D(2, 2),
+        Conv2D(64, (3, 3), activation="relu"),
+        MaxPooling2D(2, 2),
+        Flatten(),
+        Dense(128, activation="relu"),
+        Dropout(0.5),
+        Dense(2, activation="softmax"),
+    ]
+)
 
-model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=["accuracy"])
 model.summary()
 
 history = model.fit(X_train, y_train, epochs=10, validation_split=0.1, batch_size=16)
@@ -69,10 +75,20 @@ y_pred = model.predict(X_test)
 y_pred_classes = np.argmax(y_pred, axis=1)
 y_true = np.argmax(y_test, axis=1)
 
-print("Classification Report:\n", classification_report(y_true, y_pred_classes, target_names=categories))
+print(
+    "Classification Report:\n",
+    classification_report(y_true, y_pred_classes, target_names=categories),
+)
 
 cm = confusion_matrix(y_true, y_pred_classes)
-sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=categories, yticklabels=categories)
+sns.heatmap(
+    cm,
+    annot=True,
+    fmt="d",
+    cmap="Blues",
+    xticklabels=categories,
+    yticklabels=categories,
+)
 plt.xlabel("Predicted")
 plt.ylabel("True")
 plt.title("Confusion Matrix")
@@ -80,10 +96,10 @@ plt.show()
 
 model.save("brain_tumor_model.h5")
 
-plt.plot(history.history['accuracy'], label='Train Accuracy')
-plt.plot(history.history['val_accuracy'], label='Validation Accuracy')
-plt.title('Model Accuracy Over Epochs')
-plt.xlabel('Epoch')
-plt.ylabel('Accuracy')
+plt.plot(history.history["accuracy"], label="Train Accuracy")
+plt.plot(history.history["val_accuracy"], label="Validation Accuracy")
+plt.title("Model Accuracy Over Epochs")
+plt.xlabel("Epoch")
+plt.ylabel("Accuracy")
 plt.legend()
 plt.show()
