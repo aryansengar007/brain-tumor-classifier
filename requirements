@@ -1,0 +1,8 @@
+streamlit
+tensorflow==2.15.0
+numpy
+pillow
+h5py
+pandas
+matplotlib
+fpdf
